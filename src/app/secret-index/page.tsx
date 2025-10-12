@@ -14,9 +14,9 @@ export default function SecretIndex() {
           const hash = hintHashMap.find((h) => h.id === hint.id)?.hash;
           return (
             <li key={hint.id} className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition">
-              <a href={`/${hash}`} className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
+              <Link href={`/${hash}`} className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
                 Hint #{hint.id}
-              </a>
+              </Link>
             </li>
           );
         })}
