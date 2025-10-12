@@ -1,15 +1,10 @@
 self.__BUILD_MANIFEST = {
   "/_error": [
-    "./static/chunks/ed9ec7aa4f25701c.js"
+    "./static/chunks/d6d4a4b742f6adc6.js"
   ],
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [
-      {
-        "source": "/.//_next/:path+",
-        "destination": "/pc-kids-halloween-hunt-2025/_next/:path+"
-      }
-    ],
+    "beforeFiles": [],
     "fallback": []
   },
   "sortedPages": [
