@@ -8,7 +8,12 @@ export const metadata: Metadata = {
   description: "A Halloween scavenger hunt hint!",
 };
 
-export default async function HintPage({ params }: { params: { id: string } }) {
+export async function generateStaticParams() {
+  const { hintHashMap } = await import("../hint-hash-map");
+  return hintHashMap.map(({ hash }) => ({ id: hash }));
+}
+
+export default function HintPage({ params }: { params: { id: string } }) {
   const hash = params.id;
   const hintId = hashToHintId[hash] ?? null;
   const hint = hints.find((h) => h.id === hintId);

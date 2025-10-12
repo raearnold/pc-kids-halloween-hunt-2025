@@ -1,5 +1,6 @@
 import { hints } from "../hints";
 import { hintHashMap } from "../hint-hash-map";
+import Link from "next/link";
 
 export default function SecretIndex() {
   return (
@@ -20,9 +21,9 @@ export default function SecretIndex() {
           );
         })}
         <li key="congrats" className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition">
-            <a href='/congratulations' className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
+          <Link href="/congratulations" className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
             Congrats
-            </a>
+          </Link>
         </li>
       </ul>
       <div className="mt-8 text-xs text-gray-400">This page is hidden. Do not share with the kids!</div>
