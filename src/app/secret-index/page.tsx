@@ -47,6 +47,15 @@ export default function SecretIndex() {
           </Link>
         </li>
       </ul>
+      <div className="mt-4">
+        <a
+          href={`${basePath}/qr-codes/qr-codes.zip`}
+          download
+          className="inline-block mt-2 px-4 py-2 bg-orange-600 text-white rounded shadow hover:bg-orange-700 transition"
+        >
+          Download All QR Codes (ZIP)
+        </a>
+      </div>
       <div className="mt-8 text-xs text-gray-400">This page is hidden. Do not share with the kids!</div>
     </div>
   );
