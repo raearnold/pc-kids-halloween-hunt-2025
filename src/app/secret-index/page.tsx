@@ -18,32 +18,36 @@ export default function SecretIndex() {
         {hints.map((hint) => {
           const hash = (hintHashMap as Array<{id: number, hash: string}>).find((h) => h.id === hint.id)?.hash;
           return (
-            <li key={hint.id} className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition flex flex-col items-center">
-              <Image
-                src={`${basePath}/qr-codes/hint-${hint.id}.png`}
-                alt={`QR code for Hint #${hint.id}`}
-                width={112}
-                height={112}
-                className="w-28 h-28 object-contain mb-2 border border-gray-200 rounded"
-                priority
-              />
-              <Link href={`/${hash}`} className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
-                Hint #{hint.id}
+            <li key={hint.id} className="group bg-white rounded-xl shadow-lg border-2 border-orange-200 transition hover:border-orange-400">
+              <Link href={`/${hash}`} className="flex flex-col items-center w-full h-full p-4">
+                <Image
+                  src={`${basePath}/qr-codes/hint-${hint.id}.png`}
+                  alt={`QR code for Hint #${hint.id}`}
+                  width={112}
+                  height={112}
+                  className="w-28 h-28 object-contain mb-2 border border-gray-200 rounded group-hover:border-orange-400 transition"
+                  priority
+                />
+                <span className="block text-center text-xl font-semibold text-orange-600 group-hover:text-orange-800">
+                  Hint #{hint.id}
+                </span>
               </Link>
             </li>
           );
         })}
-        <li key="congrats" className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition flex flex-col items-center">
-          <Image
-            src={`${basePath}/qr-codes/congratulations.png`}
-            alt="QR code for Congratulations page"
-            width={112}
-            height={112}
-            className="w-28 h-28 object-contain mb-2 border border-gray-200 rounded"
-            priority
-          />
-          <Link href="/congratulations" className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
-            Congrats
+        <li key="congrats" className="group bg-white rounded-xl shadow-lg border-2 border-orange-200 transition hover:border-orange-400">
+          <Link href="/congratulations" className="flex flex-col items-center w-full h-full p-4">
+            <Image
+              src={`${basePath}/qr-codes/congratulations.png`}
+              alt="QR code for Congratulations page"
+              width={112}
+              height={112}
+              className="w-28 h-28 object-contain mb-2 border border-gray-200 rounded group-hover:border-orange-400 transition"
+              priority
+            />
+            <span className="block text-center text-xl font-semibold text-orange-600 group-hover:text-orange-800">
+              Congrats
+            </span>
           </Link>
         </li>
       </ul>
