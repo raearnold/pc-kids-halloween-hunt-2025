@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "postbuild": "touch docs/.nojekyll",
     "start": "next start",
     "lint": "eslint"
   },
