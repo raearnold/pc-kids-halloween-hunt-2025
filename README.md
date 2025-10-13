@@ -11,6 +11,7 @@ Welcome to the PC Kids Halloween Scavenger Hunt! This web app is designed for a 
 To generate the static site for deployment:
 
 ```bash
+node qr-generate.js
 npm run build
 ```
 
@@ -51,4 +52,30 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+---
+
+## QR Code Generation
+
+The app can generate QR codes for each hint and the congratulations page. These QR codes are placed in `public/qr-codes/` and are accessible by the web app for printing or sharing.
+
+### How to Generate QR Codes
+
+1. **Install dependencies** (if you haven't already):
+   ```bash
+   npm install
+   ```
+
+2. **Run the QR code generator script:**
+   ```bash
+   node qr-generate.js
+   ```
+   - This will:
+     - Delete any existing QR codes in `public/qr-codes/`.
+     - Generate a new QR code for each hint (named `hint-1.png`, `hint-2.png`, etc.) and for the congratulations page (`congratulations.png`).
+     - All QR codes will be accessible at `/qr-codes/hint-1.png`, `/qr-codes/hint-2.png`, etc. in your deployed app.
+
+3. **Print or share the QR codes** as needed for your scavenger hunt event!
+
+---
 

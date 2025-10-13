@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   assetPrefix: './', // Serve static assets relative to the current path
   basePath: '/pc-kids-halloween-hunt-2025', // Ensure no basePath is set
   distDir: 'docs',
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

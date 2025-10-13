@@ -1,8 +1,11 @@
 import { hints } from "../hints";
-import { hintHashMap } from "../hint-hash-map";
+import { hintHashMap } from "../hint-hash-map.js";
 import Link from "next/link";
+import Image from "next/image";
 
 export const dynamic = 'error';
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/pc-kids-halloween-hunt-2025';
 
 export default function SecretIndex() {
   return (
@@ -13,16 +16,32 @@ export default function SecretIndex() {
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-2xl">
         {hints.map((hint) => {
-          const hash = hintHashMap.find((h) => h.id === hint.id)?.hash;
+          const hash = (hintHashMap as Array<{id: number, hash: string}>).find((h) => h.id === hint.id)?.hash;
           return (
-            <li key={hint.id} className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition">
+            <li key={hint.id} className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition flex flex-col items-center">
+              <Image
+                src={`${basePath}/qr-codes/hint-${hint.id}.png`}
+                alt={`QR code for Hint #${hint.id}`}
+                width={112}
+                height={112}
+                className="w-28 h-28 object-contain mb-2 border border-gray-200 rounded"
+                priority
+              />
               <Link href={`/${hash}`} className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
                 Hint #{hint.id}
               </Link>
             </li>
           );
         })}
-        <li key="congrats" className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition">
+        <li key="congrats" className="bg-white rounded-xl shadow-lg p-4 border-2 border-orange-200 hover:border-orange-400 transition flex flex-col items-center">
+          <Image
+            src={`${basePath}/qr-codes/congratulations.png`}
+            alt="QR code for Congratulations page"
+            width={112}
+            height={112}
+            className="w-28 h-28 object-contain mb-2 border border-gray-200 rounded"
+            priority
+          />
           <Link href="/congratulations" className="block text-center text-xl font-semibold text-orange-600 hover:text-orange-800">
             Congrats
           </Link>

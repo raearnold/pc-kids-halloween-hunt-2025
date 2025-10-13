@@ -12,7 +12,7 @@ export const hintHashMap = [
   { id: 10, hash: "808080" }, // gray
 ];
 
-export const hashToHintId: Record<string, number> = {
+export const hashToHintId = {
   "FFB347": 1,
   "FFA500": 2,
   "FF8C00": 3,

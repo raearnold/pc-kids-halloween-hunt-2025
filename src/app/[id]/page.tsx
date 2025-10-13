@@ -1,7 +1,7 @@
 import { hints } from "../hints";
+import { hintHashMap, hashToHintId } from "../hint-hash-map.js";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { hashToHintId } from "../hint-hash-map";
 
 export const metadata: Metadata = {
   title: "Scavenger Hunt Hint",
@@ -11,13 +11,12 @@ export const metadata: Metadata = {
 export const dynamic = 'error';
 
 export async function generateStaticParams() {
-  const { hintHashMap } = await import("../hint-hash-map");
   return hintHashMap.map(({ hash }) => ({ id: hash }));
 }
 
 export default function HintPage({ params }: { params: { id: string } }) {
   const hash = params.id;
-  const hintId = hashToHintId[hash] ?? null;
+  const hintId = (hashToHintId as Record<string, number>)[hash] ?? null;
   const hint = hints.find((h) => h.id === hintId);
   if (!hint) {
     notFound();
