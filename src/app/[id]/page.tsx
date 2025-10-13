@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "A Halloween scavenger hunt hint!",
 };
 
+export const dynamic = 'error';
+
 export async function generateStaticParams() {
   const { hintHashMap } = await import("../hint-hash-map");
   return hintHashMap.map(({ hash }) => ({ id: hash }));

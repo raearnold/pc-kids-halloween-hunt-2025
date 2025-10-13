@@ -1,3 +1,5 @@
+export const dynamic = 'error';
+
 export default function Congratulations() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8 text-center">

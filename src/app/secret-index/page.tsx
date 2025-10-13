@@ -2,6 +2,8 @@ import { hints } from "../hints";
 import { hintHashMap } from "../hint-hash-map";
 import Link from "next/link";
 
+export const dynamic = 'error';
+
 export default function SecretIndex() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
