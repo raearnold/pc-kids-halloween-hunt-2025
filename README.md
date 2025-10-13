@@ -1,5 +1,7 @@
 # PC Kids Halloween Scavenger Hunt 2025
 
+[View the live site](https://raearnold.github.io/pc-kids-halloween-hunt-2025/secret-index)
+
 Welcome to the PC Kids Halloween Scavenger Hunt! This web app is designed for a fun, safe, and interactive scavenger hunt experience for elementary-age kids. Each clue is accessed by scanning a unique QR code, leading to a special hint page. The hunt is Halloween-themed, with colorful, kid-friendly visuals and a secret index for grown-ups to manage the event. After solving all the clues, kids are directed to a congratulations page to claim their prize!
 
 ---
@@ -78,4 +80,14 @@ The app can generate QR codes for each hint and the congratulations page. These 
 3. **Print or share the QR codes** as needed for your scavenger hunt event!
 
 ---
+
+## Tech Stack & Credits
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, static export)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **QR Code Generation:** [qrcode](https://www.npmjs.com/package/qrcode) (Node.js script)
+- **ZIP Packaging:** [archiver](https://www.npmjs.com/package/archiver) (Node.js script)
+- **Hosting:** [GitHub Pages](https://pages.github.com/) (static site, subpath support)
+- **Build Automation:** GitHub Actions (CI/CD)
+- **AI Assistance:** This project was primarily built using GitHub Copilot and GPT-4.1, with iterative code generation, refactoring, and troubleshooting provided by AI.
 
