@@ -1,11 +1,11 @@
-import { hints } from "../hints";
+import { hints, title, footer } from "../hunt-config";
 import { hintHashMap, hashToHintId } from "../hint-hash-map.js";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Scavenger Hunt Hint",
-  description: "A Halloween scavenger hunt hint!",
+  description: `A hint for the ${title}`,
 };
 
 export const dynamic = 'error';
@@ -17,10 +17,11 @@ export async function generateStaticParams() {
 export default async function HintPage({ params }: { params: { id: string } }) {
   const hash = (await params).id;
   const hintHashId = (hashToHintId as Record<string, number>)[hash] ?? null;
-  const { id: hintId, text: hintText, answer: hintAnswer } = hints.find((h) => h.id === hintHashId) ?? {};
-  if (!hintId) {
+  const hintObj = hints.find((h: { id: number; text: string; answer?: string }) => h.id === hintHashId);
+  if (!hintObj) {
     notFound();
   }
+  const { id: hintId, text: hintText, answer: hintAnswer } = hintObj;
 
   const icons = ['🦴', '🎃', '🕸️', '🧛‍♂️', '🧟', '🧙', '🦇', '🕷️', '🪦', '🦉', '⚰️', '🧹', '🧑‍🎤',];
 
@@ -31,7 +32,7 @@ export default async function HintPage({ params }: { params: { id: string } }) {
       <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-orange-200 text-2xl text-center text-gray-800 max-w-xl">
         {hintText}
       </div>
-      <p className="mt-8 text-xs text-gray-400">🎃🎃🎃  Happy Halloween from PC Kids!  🎃🎃🎃 <br /> Scavenger Hunt 2025</p>
+      <p className="mt-8 text-xs text-gray-400">{footer}</p>
     </div>
     { hintAnswer &&
       <div className="min-h-screen p-8 flex justify-center pointer-events-none select-none">

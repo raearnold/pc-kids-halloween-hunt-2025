@@ -4,6 +4,8 @@
 
 Welcome to the PC Kids Halloween Scavenger Hunt! This web app is designed for a fun, safe, and interactive scavenger hunt experience for elementary-age kids. Each clue is accessed by scanning a unique QR code, leading to a special hint page. The hunt is Halloween-themed, with colorful, kid-friendly visuals and a secret index for grown-ups to manage the event. After solving all the clues, kids are directed to a congratulations page to claim their prize!
 
+***ALPHA VERSION***… future work will genericize this for shareability.
+
 ---
 
 ## Building & Deploying to GitHub Pages

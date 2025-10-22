@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  [class*="print:page-break-after"]:not(:last-of-type) {
+    page-break-after: always;
+  }
+}
