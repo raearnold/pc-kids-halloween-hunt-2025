@@ -11,6 +11,7 @@ export default function SecretIndex() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
       <div className="flex flex-col items-center gap-2">
+        
         <h1 className="text-4xl font-bold text-orange-600 drop-shadow-lg mb-2">{title}</h1>
         <p className="text-lg text-gray-700 mb-4">Welcome! This is the secret index page for grown-ups. Each link below leads to a unique hint page for the scavenger hunt. Share the QR code for each page with your hunters!</p>
       </div>
