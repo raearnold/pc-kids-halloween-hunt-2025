@@ -14,6 +14,7 @@ export default function SecretIndex() {
         
         <h1 className="text-4xl font-bold text-orange-600 drop-shadow-lg mb-2">{title}</h1>
         <p className="text-lg text-gray-700 mb-4">Welcome! This is the secret index page for grown-ups. Each link below leads to a unique hint page for the scavenger hunt. Share the QR code for each page with your hunters!</p>
+        <p className="mt-4 mb-4">To get started and find the first ghost, solve this hint: <strong>{hints[0].text}</strong></p>
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-2xl">
         {hints.map((hint: { id: number; text: string; answer?: string }) => {
@@ -30,7 +31,7 @@ export default function SecretIndex() {
                   priority
                 />
                 <span className="block text-center text-xl font-semibold text-orange-600 group-hover:text-orange-800">
-                  Hint #{hint.id}
+                  Ghost #{hint.id}&rsquo;s Hint
                 </span>
               </Link>
             </li>

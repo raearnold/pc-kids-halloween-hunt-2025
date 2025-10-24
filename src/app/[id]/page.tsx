@@ -1,7 +1,7 @@
 import { hints, title, footer } from "../hunt-config";
 import { hintHashMap, hashToHintId } from "../hint-hash-map.js";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Scavenger Hunt Hint",
@@ -14,9 +14,14 @@ export async function generateStaticParams() {
   return hintHashMap.map(({ hash }) => ({ id: hash }));
 }
 
-export default async function HintPage({ params }: { params: { id: string } }) {
-  const hash = (await params).id;
-  const hintHashId = (hashToHintId as Record<string, number>)[hash] ?? null;
+export default function HintPage({ params }: { params: { id: string } }) {
+  const hash = params.id;
+  // Shift the hint mapping by +1
+  const hintHashId = ((hashToHintId as Record<string, number>)[hash] ?? null) + 1;
+  // If hintHashId is greater than the number of hints, show congratulations
+  if (hintHashId > hints.length) {
+    redirect("/congratulations");
+  }
   const hintObj = hints.find((h: { id: number; text: string; answer?: string }) => h.id === hintHashId);
   if (!hintObj) {
     notFound();
@@ -26,7 +31,7 @@ export default async function HintPage({ params }: { params: { id: string } }) {
   return (<>
     <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8 text-center">
       <span className="mb-2 text-[100px]" role="presentation">{hintIcon}</span>
-      <h1 className="text-3xl font-bold text-orange-700 mb-4">Hint #{hintId}</h1>
+      <h1 className="text-3xl font-bold text-orange-700 mb-4">Ghost #{hintId - 1} says:</h1>
       <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-orange-200 text-2xl text-center text-gray-800 max-w-xl">
         {hintText}
       </div>
